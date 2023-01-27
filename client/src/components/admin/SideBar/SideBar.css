@@ -1,0 +1,13 @@
+.SideBar{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+    width: 150px;
+    background-color: rgb(28, 181, 109);
+}
+.active{
+    color: rgb(202, 126, 243);
+    text-decoration: underline;
+    transition-duration: .5s;
+}

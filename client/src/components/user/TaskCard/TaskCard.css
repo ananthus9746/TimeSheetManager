@@ -1,0 +1,17 @@
+.assigned-task-container{
+    width: 60%;
+    background-color: rgb(238, 91, 228);
+    height: 250px;
+    line-height: 40px;
+}
+.start-button{
+    background-color: rgb(255, 0, 119);
+    border: none;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 1.2px;
+}

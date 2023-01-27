@@ -1,0 +1,52 @@
+.assingned-container{
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.assigned-task-container{
+    width: 450px;
+    height: 250px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+    /* backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.627);
+    backdrop-filter: saturate(210%) blur(10px); */
+
+
+}
+.start-button{
+    background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 60%;
+    border: none;
+}
+
+.assigned-heading{
+    text-align: center;
+    color: rgb(187, 135, 255);
+    margin: 50px;
+    font-weight: 400
+}
+
+@media screen and (max-width:800px){
+    .assingned-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .assigned-task-container{
+        width: 100%;
+    }
+  }

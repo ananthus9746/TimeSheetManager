@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+a{
+    text-decoration:none;
+}
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+   
+    background:rgb(30,0,76);
+    background: linear-gradient(148deg, rgb(30, 0, 86) 0%, rgb(72, 3, 137) 0%,rgb(46, 1, 72) 50%);
+}

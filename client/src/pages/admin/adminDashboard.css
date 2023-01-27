@@ -1,0 +1,6 @@
+.admin-dashboard{
+    background:rgb(30,0,76);
+    background: linear-gradient(148deg, rgb(30, 0, 86) 0%, rgb(72, 3, 137) 0%,rgb(46, 1, 72) 50%);    height: 100vh;
+    display: flex;
+    flex: 1;
+}

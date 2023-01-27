@@ -1,0 +1,61 @@
+.loginPage{
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-page-container{
+   height: 500px;
+   background-color: white;
+   width: 70%;
+   border-radius: 10px;
+   box-shadow: 5px 10px 40px #000000;
+    /* background-image: url("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg");  */
+}
+
+
+.login-form{
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.user-login-text{
+    margin-bottom: 50px;
+}
+.login-input{
+    width: 100%;
+   text-align: center;
+   border: solid 1px rgb(226, 226, 226);
+   height: 30px;
+   margin-bottom: 20px;
+}
+.login-button{
+    background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+}
+
+/* @media screen and (max-width:800px){
+    .login-form{
+        width: 100px;
+      background-color: red;
+    }
+
+    .login-page-container{
+       display: flex;
+
+        width: 100%;
+     }
+  } */
+  
+  

@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    justify-content: end;
+    color: black;
+    width: 100%;
+    color: white;
+}
+.nav-bar{
+ display: flex;
+ justify-content: space-evenly;
+}
+.nav-container{
+width: 50%;
+margin-right: 60px;
+
+}
+.navlinks{
+    font-size: 2rem;
+    padding: 20px;
+}
