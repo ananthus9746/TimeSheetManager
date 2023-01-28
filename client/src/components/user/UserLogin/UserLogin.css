@@ -1,48 +1,61 @@
 .loginPage{
     height: 100vh;
     background: rgb(2,0,36);
-    background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
+    background: linear-gradient(148deg, rgb(30, 0, 86) 0%, rgb(72, 3, 137) 0%,rgb(46, 1, 72) 50%);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .login-page-container{
    height: 500px;
-   background-color: white;
-   width: 70%;
-   border-radius: 10px;
+   width: 60%;
+   border-radius: 30px;
    box-shadow: 5px 10px 40px #000000;
-    /* background-image: url("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg");  */
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
 }
 
 
 .login-form{
-    margin-left: auto;
-    height: 100%;
-    width: 50%;
-    padding: 20px;
+   
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column;    
+
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+   
 }
 .user-login-text{
     margin-bottom: 50px;
+
+    color: white;
 }
-.login-input{
+.user-login-input{
     width: 100%;
-   text-align: center;
+padding-left: 10px;
    border: solid 1px rgb(226, 226, 226);
-   height: 30px;
+   height: 50px;
    margin-bottom: 20px;
+
+   border-radius: 20px;
+
 }
-.login-button{
+.user-login-button{
     background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
     color: white;
     border-radius: 20px;
     padding: 10px;
     width: 100%;
     border: none;
+    height: 50px;
+    font-size: large;
+
 }
 
 /* @media screen and (max-width:800px){

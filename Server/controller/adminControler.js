@@ -3,6 +3,7 @@ const jwt=require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const task = require('../model/task')
 const users = require('../model/users')
+const { find } = require('../model/task')
 
 
 // ---------------CREATING USERS AND TASKS-------------------------------//
@@ -64,6 +65,8 @@ const createUser =async(req,res)=>{
      res.status(200).json(user)
 }
 
+// ----------------------------VIWE ALL USERS-----------------------------//
+
 const viewUsers =async(req,res)=>{
     console.log("gat all users")
     // let count = await users.find({}).count()
@@ -104,8 +107,29 @@ const creatingTasks = (req,res) =>{
 
 // -------------------ADMIN DASHBOARD GET ALL DETAILS--------------------//
 
-const adminDashboard = (req,res)=>{
+const adminDashboard = async(req,res)=>{
     console.log("get all details for admin dash board")
+
+    try{
+        const totalUsers= await users.find({}).count()
+        const totalCompleted=await task.find({status: "completed"}).count()
+        const totalStarted=await task.find({status: "started"}).count()
+        const totalTask= await task.find({status: "assigned"}).count()
+        let statistics={
+            totalUsers,
+            totalCompleted,
+            totalStarted,
+            totalTask
+            }
+        console.log("statistics..",statistics)
+        res.status(200).json({statistics})
+
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({error:"server error"})
+    }
+
 }
 
 

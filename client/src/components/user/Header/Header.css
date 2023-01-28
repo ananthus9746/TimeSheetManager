@@ -4,6 +4,12 @@
     color: black;
     width: 100%;
     color: white;
+
+        background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(37, 108, 184, 0.37) 0%, rgba(248, 2, 182, 0.195) 99%);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.5px);
+        -webkit-backdrop-filter: blur(6.5px);
 }
 .nav-bar{
  display: flex;
@@ -17,4 +23,16 @@ margin-right: 60px;
 .navlinks{
     font-size: 2rem;
     padding: 20px;
+    color: rgb(168, 94, 224);
 }
+
+.navlinks a {
+    color:black;
+    
+  }
+  
+  .navlinks a:hover,
+  .navlinks a:active,
+  .navlinks a.active {
+    color: blue;
+  }

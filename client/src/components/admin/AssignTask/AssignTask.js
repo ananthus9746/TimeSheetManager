@@ -10,7 +10,7 @@ import "./AssignTask.css";
 function AssignTask() {
   const [users, setUsers] = useState([]);
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm()
+  const { register, handleSubmit, watch,reset, formState: { errors } } = useForm()
 
 
   const onSubmit = async(taskData) =>{
@@ -25,9 +25,15 @@ function AssignTask() {
     }
   }).then((response)=>{
     alert("Task added")
+
+    reset({
+      taskName: '',
+      time: '',
+      user:'',
+      discription:'',
+    })
+
   })
-
-
   }
 
 
@@ -59,40 +65,45 @@ function AssignTask() {
 
   return (
     <div className="assign-container">
-      <form  onSubmit={handleSubmit(onSubmit)}>
 
-        <label >Task Name</label>
+
+      <form className="assign-task-form"  onSubmit={handleSubmit(onSubmit)}>
+
+        <h1  className='assign-task-heading'>ASSIGN TASK TO USERS</h1>
+
+        <label className="assign-label-names" >Task Name</label>
         <br />
 
-        <input type="text" placeholder="task"  {...register("taskName", { required: true })}/>
+        <input className="assign-input"   type="text" placeholder="task"  {...register("taskName", { required: true })}/>
         <br />
-        {errors.taskName && <span>Task name required</span>}
+        {errors.taskName && <span className="reqired-field">Task name required ?</span>}
 
 
-        <label>Time</label>
+        <label  className="assign-label-names">Time</label>
         <br />
 
-        <input type="number" placeholder="Time"  {...register("time", { required: true })} />
+        <input  className="assign-input" type="number" placeholder="Time"  {...register("time", { required: true })} />
         <br />
-        {errors.time && <span>Time field is required</span>}
+        {errors.time && <span  className="reqired-field">Time field is required ?</span>}
 
         
-        <label for="">Select user</label>
+        <label  className="assign-label-names" for="">Select user</label>
         <br />
 
-        <select name="cars" id="cars"  {...register("user", { required: true })}  >
+        <select className="assign-input" name="cars" id="cars"  {...register("user", { required: true })}  >
 
-        <option  selected disabled hidden>Select an Option</option>
-=          {users?.map((obj) => {
+        <option   selected disabled hidden>Select an Option</option>
+       {users?.map((obj) => {
             return <option value={obj._id}>{obj.username}</option>;
           })}
         </select>
         
-        {errors.user && <span>Must need select a user</span>}
+        {errors.user && <span  className="reqired-field">Must need select a user ?</span>}
 
 
         <br />
-        <p>Discription</p>
+        <p  className="assign-label-names">Discription</p>
+        <br/>
         <textarea
           className="discription"
           placeholder="discription..."
@@ -109,6 +120,7 @@ function AssignTask() {
         {/* <input className="assign-button" type="submit" /> */}
         
       </form>
+
     </div>
   );
 }

@@ -1,13 +1,21 @@
 .SideBar{
     height: 100vh;
     display: flex;
+    width: 250px;
     flex-direction: column;
     line-height: 40px;
-    width: 150px;
-    background-color: rgb(28, 181, 109);
+    background: linear-gradient(1deg, rgba(82, 2, 70, 0.342) 0%,rgba(77, 8, 105, 0.586) 50%);    height: 100vh;
+    color: white;
+    padding: 10px;
+    line-height: 80px;
+    box-shadow:1px 1px 20px 1px #000000;
 }
 .active{
     color: rgb(202, 126, 243);
     text-decoration: underline;
     transition-duration: .5s;
+}
+.selectedSection{
+    font-size: 1.5rem;
+    color: rgba(220, 220, 220, 0.873);
 }

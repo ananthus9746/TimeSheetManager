@@ -46,10 +46,10 @@ function UserLogin() {
     <div className="loginPage">
       <div className="login-page-container">
         <div className="login-form">
-          <h2 className="user-login-text">User Login</h2>
+          <h1 className="user-login-text">User Login</h1>
           <form action="">
             <input
-              className="login-input"
+              className="user-login-input"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -57,14 +57,14 @@ function UserLogin() {
               placeholder="email"
             />
             <input
-              className="login-input"
+              className="user-login-input"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
               type="password"
               placeholder="password"
             />
-            <button className="login-button" onClick={handleSubmit}>
+            <button className="user-login-button" onClick={handleSubmit}>
               Login
             </button>
           </form>

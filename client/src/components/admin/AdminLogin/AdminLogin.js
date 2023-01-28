@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
 import jwt_decode from "jwt-decode";
-
+import './AdminLogin.css'
 
 
 function AdminLogin() {
@@ -37,13 +37,15 @@ function AdminLogin() {
 
 
   return (
-    <div>
-      <h1>Admin login page</h1>
-      <form action="">
-        <input type="text"  onChange={(e)=>{setUserName(e.target.value)}} name="" id=""  placeholder='username'/>
-        <input type="password"  onChange={(e)=>{setPassword(e.target.value)}} name="" id="" />
-        <button onClick={handleSubmit}>Login</button>
-      </form>
+    <div className='admin-login-contianer'>
+      <div className='admin-login-cover'>
+        <h1 className='admin-login0heading'>Admin login</h1>
+        <form className='admin-login-form' action="">
+          <input className='admin-login-input' type="text"  onChange={(e)=>{setUserName(e.target.value)}} name="" id=""  placeholder='username'/>
+          <input  className='admin-login-input' type="password"  onChange={(e)=>{setPassword(e.target.value)}} name="" id="" />
+          <button  className='admin-login-button' onClick={handleSubmit}>Login</button>
+        </form>
+      </div>
     </div>
   )
 }

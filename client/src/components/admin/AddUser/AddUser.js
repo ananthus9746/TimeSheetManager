@@ -26,18 +26,25 @@ function AddUser() {
       }
     }).then((response)=>{
       alert("user added",response)
+      setUserName('')
+      setPassword('')
+      setEmail('')
     })
   }
 
 
 
   return (
-    <div>
-      <h1>ADD USER</h1>
-      <input type="text"  onChange={(e)=>{setUserName(e.target.value)}} placeholder='username'/>
-      <input type="text"  onChange={(e)=>{setPassword(e.target.value)}} placeholder='password'/>
-      <input type="email"  onChange={(e)=>{setEmail(e.target.value)}} placeholder='email'/>
-      <button className='add-user'  onClick={handleSubmit}>ADD USER</button>
+    <div className="add-user-container">
+      
+      <div className='add-user-cover'>
+        <h1 className='add-user-heading'>ADD USER</h1>
+        <input  className='useraInput' value={userName} type="text"  onChange={(e)=>{setUserName(e.target.value)}} placeholder='username'/>
+        <input  className='useraInput' value={password}  type="text"  onChange={(e)=>{setPassword(e.target.value)}} placeholder='password'/>
+        <input  className='useraInput' value={email} type="email"  onChange={(e)=>{setEmail(e.target.value)}} placeholder='email'/>
+        <button className='add-user'  onClick={handleSubmit}>Add user</button>
+      </div>
+
     </div>
 
   )

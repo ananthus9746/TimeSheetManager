@@ -1,8 +1,48 @@
+.add-user-container{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 100%;
+}
+.add-user-cover{
+    background-color: rgba(81, 0, 128, 0.606);
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    box-shadow: 5px 10px 40px #000000;
+    padding: 20px;
+    border-radius: 25px;
+}
+.add-user-heading{
+    color: rgba(255, 255, 255, 0.664);
+    text-align: center;
+    margin: 40px;
+}
+.useraInput{
+width: 100%;
+height: 60px;
+border-radius: 18px;
+margin-bottom: 15px;
+font-size: large;
+padding: 5px;
+border: none;
+background-color: rgb(234, 234, 234);
+box-shadow: 1px -3px 22px 0.1px #000000;
+
+
+}
 .add-user{
-    background-color: blue;
+    background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
     color: white;
-    font-size: large;
+    border-radius: 20px;
+    height: 60px;
+    width: 100%;
     border: none;
-    padding: 10px;
-    margin-top: 10px;
+    font-size: large;
+
+    box-shadow: 5px 10px 40px #000000;
 }

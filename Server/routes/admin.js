@@ -7,12 +7,9 @@ const {verifyAdmin} = require('../Authentication/AdminAuth')
 
 router.post('/login',adminLogin)
 router.post('/createUser',verifyAdmin,createUser)
-// router.get('/view-user/:page',verifyAdmin,viewUsers)
-
 router.get('/view-user',verifyAdmin,viewUsers)
 router.post ('/create-task' ,verifyAdmin,creatingTasks)
-
-router.get('admin-dashboard',verifyAdmin,adminDashboard)
+router.get('/dashboard',verifyAdmin,adminDashboard)
 
 
 

@@ -8,28 +8,34 @@ export default function SideBar() {
     <nav className='SideBar'>
         
     <NavLink to={'/admin/dashboard'} >
-       <p className='selectedSection'> Home 1</p>
+       <p className='selectedSection'>Admin Dashboard</p>
     </NavLink>
 
     <NavLink to={'/admin/users'} >
-        users
+    <p className='selectedSection'> View users</p>
+
     </NavLink>
     <NavLink to={'/admin/createUser'} >
-        create users
+    <p className='selectedSection'> Create users</p>
+
     </NavLink>
     <NavLink to={'/admin/assignTask'} >
-        Assign Task to users
+    <p className='selectedSection'>Assign Task </p>
+
     </NavLink>
     <NavLink to={'/admin/WeeklyReport'} >
-       Weeky report
+    <p className='selectedSection'>Weakly report</p>
+
     </NavLink>
 
     <NavLink to={'/admin/MonthlyReport'} >
-        Monthly report
+    <p className='selectedSection'>Monthly report</p>
+
     </NavLink>
 
     <NavLink to={'admin/logOut'} >
-        LogOut
+    <p className='selectedSection'>Logout</p>
+
     </NavLink>
 
     </nav>

@@ -1,6 +1,9 @@
 import React, { useEffect,useState } from "react";
 import "./ViewUsers.css";
 import { ViewAllUsers } from "../../Api/AdminAPI/AdminAPI";
+import moment from 'moment';
+
+
 
 function ViewUsers() {
   const [users, setUsers] = useState([]);
@@ -14,14 +17,7 @@ function ViewUsers() {
       });
       // console.log(users);
     } catch (error) {
-      console.log(error);
-      if (error?.response?.status === 403) {
-        // console.log("hiiii")
-        // localStorage.removeItem('Admintoken')
-        // Navigate("/admin/admin-login")
-      } else {
-        alert("render errpor page");
-      }
+        alert(error)
     }
   },[]);
 
@@ -31,14 +27,16 @@ function ViewUsers() {
         <tr>
           <th>Username</th>
           <th>Password</th>
-          {/* <th>Created Date</th> */}
+          <th>email</th>
+          <th>Created</th>
         </tr>
         {users?.map((obj) => {
           return (
             <tr>
               <td>{obj.username}</td>
               <td>{obj.password}</td>
-              {/* <td>{obj.createdAt}</td> */}
+              <td>{obj.email}</td>
+              <td>{moment(obj.createdAt).format("dddd, MMM DD at HH:mm a")}</td>
             </tr>
           );
         })}

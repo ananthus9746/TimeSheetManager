@@ -1,80 +1,80 @@
-import React,{useEffect,useState} from "react";
-import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
+import React, { useEffect, useState } from "react";
+import AxiosInstance from "../../../AxiosInstance/AxiosInstance";
 import "./AssignedCard.css";
 
 function AssignedCard() {
   const [task, setTask] = useState([]);
-  const [starTaskId,setStartTask] =useState('')
-  const [startDocumentId,setStartDocumentId]=useState('')
+  const [starTaskId, setStartTask] = useState("");
+  const [startDocumentId, setStartDocumentId] = useState("");
   //----------------GETTING ASSIGNED TASKS-----------------//
 
-  useEffect( () => {
-    try{
-      let userToken=localStorage.getItem('userToken')
-      var userId=localStorage.getItem('user')
-      console.log("local storage user id..",userId)
-      const getTask =async()=>{
+  useEffect(() => {
+    try {
+      let userToken = localStorage.getItem("userToken");
+      var userId = localStorage.getItem("user");
+      console.log("local storage user id..", userId);
+      const getTask = async () => {
         const response = await AxiosInstance({
           method: "get",
           url: `/tasks/${userId}/assigned`,
           data: {
-            userid:userId
+            userid: userId,
           },
-        }).then((task)=>{
-          console.log("assigned task data..",task)
-          console.log("taskdata..",task.data.Task)
-          setTask(task.data.Task)
-        })
-      }
-      getTask()
+        }).then((task) => {
+          console.log("assigned task data..", task);
+          console.log("taskdata..", task.data.Task);
+          setTask(task.data.Task);
+        });
+      };
+      getTask();
+    } catch (err) {
+      alert("erorr", err);
     }
-    catch(err){
-      alert("erorr",err)
-    }
-  },[]);
+  }, []);
 
   // -------------------SARTING TASK--------------------//
 
-      const handleStart= async(docId)=>{
-        var userId=localStorage.getItem('user')
-        console.log("document id..",docId)
-        console.log("userId...",userId)
+  const handleStart = async (docId) => {
+    var userId = localStorage.getItem("user");
+    console.log("document id..", docId);
+    console.log("userId...", userId);
 
-
-        const response = await AxiosInstance({
-        method: "put",
-        url: "/updateStatus",
-        data: {
-         taskId:docId,
-         userId:userId,
-         status:"started"
-        },
-      }).then((response)=>{
-        alert("started",response)
-      })
-      }
+    const response = await AxiosInstance({
+      method: "put",
+      url: "/updateStatus",
+      data: {
+        taskId: docId,
+        userId: userId,
+        status: "started",
+      },
+    }).then((response) => {
+      alert("started", response);
+    });
+  };
   // --------------------------------------------------------//
-  
 
   return (
     <>
       <h1 className="assigned-heading">ASSIGNED TASKS</h1>
-        {
-        task.map((obj,index)=>{
-          return(
+      <div className="finished-container">
+        {task.map((obj, index) => {
+          return (
             <div className="assingned-container">
-            <div className="assigned-task-container">
-              <h2 className="card-heading">{obj.taskname}</h2>
-              <p className="card-paragraph">
-               {obj.description}
-              </p>
-              <h1 className="card-time">Allowcated time: {obj.time}hr</h1>
-              <button className="start-button"  onClick={()=>handleStart(obj._id)} >Startd</button>
+              <div className="assigned-task-container">
+                <h2 className="card-heading">{obj.taskname}</h2>
+                <p className="card-paragraph">{obj.description}</p>
+                <h1 className="card-time">Allowcated time: {obj.time}hr</h1>
+                <button
+                  className="start-button"
+                  onClick={() => handleStart(obj._id)}
+                >
+                  Startd
+                </button>
+              </div>
             </div>
-          </div>
-          )
-        })
-       }
+          );
+        })}
+      </div>
     </>
   );
 }

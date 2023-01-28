@@ -1,11 +1,64 @@
 .assign-container{
     padding: 10px;
-}
-.assign-button{
-    width: 70px;
-    background-color: blue;
-    padding: 10px;
-    height: 30px;
-    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
 }
+.assign-task-form{
+    background-color: rgba(81, 0, 128, 0.606);
+    box-shadow: 5px 10px 40px #000000;
+    padding: 20px;
+    border-radius: 25px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.assign-label-names{
+    font-size: large;
+}
+.assign-task-heading{
+color: rgba(255, 255, 255, 0.664);
+text-align: center;
+margin-bottom: 30px;
+}
+.assign-input{
+height: 50px;
+border: none;
+border-radius: 17px;
+padding-left: 10px;
+font-size: large;
+background-color: rgb(234, 234, 234);
+box-shadow:1px 2px 22px 0.1px #000000;
+
+}
+.discription{
+    height: 25%;
+    padding: 10px;
+    font-size: large;
+    border-radius: 17px;
+    background-color: rgb(234, 234, 234);
+    box-shadow:1px 2px 22px 0.1px #000000;
+
+}
+
+.assign-button{
+    width: 100%;
+    background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(248,2,182,1) 99%);
+    color: white;
+    border-radius: 20px;
+    height: 60px;
+    width: 100%;
+    border: none;
+    font-size: large;
+
+    box-shadow: 5px 10px 40px #000000;
+}
+.reqired-field{
+    color: rgb(245, 146, 215);
+    margin-bottom: 10px;
+}
+
