@@ -38,8 +38,9 @@ const taskSchema = new Schema({
     finished :{
         type : Date
     },
+
     totalTime :{
-        type : Number
+        type : String
     },
 })
 

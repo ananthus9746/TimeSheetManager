@@ -1,15 +1,15 @@
 const express  = require('express')
 const { verifyUser } = require('../Authentication/UserAuth')
 const router=express.Router()
-const {userLogin,getTasks,UpdateTask} = require('../controller/userControler')
+const {userLogin,viewTask,UpdateTask} = require('../controller/userControler')
 
 
 
 router.post('/login',userLogin)
 
-router.get('/tasks/:id/:status',verifyUser,getTasks)//getTasks
+router.get('/tasks/:id/:status',verifyUser,viewTask)
 
-router.put('/updateStatus',verifyUser,UpdateTask)//update
+router.put('/updateStatus',verifyUser,UpdateTask)
 
 
 module.exports=router

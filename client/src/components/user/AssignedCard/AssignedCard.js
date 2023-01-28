@@ -6,6 +6,8 @@ function AssignedCard() {
   const [task, setTask] = useState([]);
   const [starTaskId, setStartTask] = useState("");
   const [startDocumentId, setStartDocumentId] = useState("");
+  const[reload,setReload] = useState(false);
+
   //----------------GETTING ASSIGNED TASKS-----------------//
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function AssignedCard() {
     } catch (err) {
       alert("erorr", err);
     }
-  }, []);
+  }, [reload]);
 
   // -------------------SARTING TASK--------------------//
 
@@ -48,6 +50,8 @@ function AssignedCard() {
         status: "started",
       },
     }).then((response) => {
+      setReload(!reload)
+
       alert("started", response);
     });
   };

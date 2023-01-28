@@ -8,7 +8,7 @@ function StartedCard() {
   const [task, setTask] = useState([]);
   const [starTaskId, setStartTask] = useState("");
   const [startDocumentId, setStartDocumentId] = useState("");
-
+  const[reload,setReload] = useState(false);
   //--------------------GETTING STARTED TASKS----------------------//
   useEffect(() => {
     try {
@@ -32,7 +32,7 @@ function StartedCard() {
     } catch (err) {
       alert("erorr", err);
     }
-  }, []);
+  }, [reload]);
   // ---------------------------COMPLETING TASK-------------------//
 
   const handleStart = async (docId) => {
@@ -49,6 +49,8 @@ function StartedCard() {
         status: "completed",
       },
     }).then((response) => {
+      setReload(!reload);
+
       alert("completed", response);
     });
   };

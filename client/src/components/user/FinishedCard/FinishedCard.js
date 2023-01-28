@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from "react";
 import "./FinishedCard.css";
 import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
-const format = require('format-duration')
+import moment from 'moment';
+
 
 
 
@@ -47,7 +48,6 @@ function FinishedCard() {
           {
             task.map((obj,index)=>{
 
-             let date = format((new Date(obj.completed).getTime() - new Date(obj.started).getTime()) / 60)
 
               return(
                 <div className="finished-task-container">
@@ -57,8 +57,9 @@ function FinishedCard() {
                   </p>
                   {/* <p>Task Assigned date:{obj.created}</p> */}
                   <h2 className="card-time">Time Allowcated: 1hr</h2>
-                  <p>Time taken :{date} hr</p>
-                  <p>total time:{obj.totalTime}</p>
+                  <p>Task assigned date:{moment(obj.createdAt).format("dddd-MMM-DD")}</p>
+
+                  <p>Time time:{obj.totalTime}</p>
               </div>
               )
             })
