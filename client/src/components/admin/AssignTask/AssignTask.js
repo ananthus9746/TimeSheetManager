@@ -9,6 +9,8 @@ import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
 import "./AssignTask.css";
 function AssignTask() {
   const [users, setUsers] = useState([]);
+  const [username, setUsername] = useState('');
+
 
   const { register, handleSubmit, watch,reset, formState: { errors } } = useForm()
 
@@ -94,7 +96,7 @@ function AssignTask() {
 
         <option   selected disabled hidden>Select an Option</option>
        {users?.map((obj) => {
-            return <option value={obj._id}>{obj.username}</option>;
+            return (<option value={obj._id}>{obj.username}</option>)
           })}
         </select>
         

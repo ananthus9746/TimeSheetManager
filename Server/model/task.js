@@ -9,6 +9,9 @@ const taskSchema = new Schema({
         ref: "users",
         require: true,
     },  
+    username: {
+        type : String,
+    }, 
     taskname : {
         type : String,
         require : true,

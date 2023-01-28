@@ -59,9 +59,14 @@ const viewTask= async(req,res)=>{
   let userId=req.params.id
 
   try{
+    console.log("inside try")
 
-    let Task =await task.find({user:ObjectId(userId),status :req.params.status}).populate('user')
+    let Task =await task.find({user:ObjectId(userId),status :req.params.status})
+
+    console.log("finded task...",Task)
+    
     if(Task.length>0){
+      console.log("task > 0..")
       res.status(200).json({Task:Task})
     }
 
@@ -72,6 +77,8 @@ const viewTask= async(req,res)=>{
 }
 // ------------------UPDATING TASK STATUS------------------------------//
                    //START-----COMPLETE//
+//this function conver mill second to time for getting the time take to finish this task
+
                    function msToTime(ms) {
                     let seconds = (ms / 1000).toFixed(1);
                     let minutes = (ms / (1000 * 60)).toFixed(1);
