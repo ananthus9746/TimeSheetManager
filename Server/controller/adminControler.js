@@ -83,13 +83,19 @@ const viewUsers =async(req,res)=>{
 }
 // ----------------------------CREATING TASK------------------------------//
 
-const creatingTasks = (req,res) =>{
+const creatingTasks = async (req,res) =>{
     console.log("creating task ",req.body)
     const {taskName,user,time,discription} =req.body.taskData
 
+    var findUsername = await users.find({_id:user})
+    if(findUsername){
+        console.log("username..",findUsername[0].username)
+        var username=findUsername[0].username
+    }
 
     const Task = new task({
         user:user,
+        username:username,
         taskname:taskName,
         time :time,
         status:"assigned",
@@ -97,8 +103,9 @@ const creatingTasks = (req,res) =>{
         description:discription
     })
     Task.save().then((task)=>{
-        res.status(200).json(task)
         console.log("task saved..",task)
+
+        res.status(200).json(task)
     })
       console.log("newly inseted task..",task)
     

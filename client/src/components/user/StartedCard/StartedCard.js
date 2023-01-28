@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
-
 import AxiosInstance from "../../../AxiosInstance/AxiosInstance";
 import "./StartedCard.css";
+import moment from 'moment';
+
 
 function StartedCard() {
   const [task, setTask] = useState([]);
@@ -65,6 +66,8 @@ function StartedCard() {
             <div className="started-task-container">
               <h2 className="card-heading">{obj.taskname}</h2>
               <p className="card-paragraph">{obj.description}</p>
+              <p className="card-paragraph">Task started :  {moment(obj.started).format("dddd-MMM-DD")}</p>
+
               <h1 className="card-time">Allowcated time: {obj.time}hr</h1>
               <p>
                 Time left:

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AxiosInstance from "../../../AxiosInstance/AxiosInstance";
 import "./AssignedCard.css";
+import moment from 'moment';
+
 
 function AssignedCard() {
   const [task, setTask] = useState([]);
@@ -67,6 +69,7 @@ function AssignedCard() {
               <div className="assigned-task-container">
                 <h2 className="card-heading">{obj.taskname}</h2>
                 <p className="card-paragraph">{obj.description}</p>
+                <p>Task assigned date : {moment(obj.createdAt).format("dddd-MMM-DD")}</p>
                 <h1 className="card-time">Allowcated time: {obj.time}hr</h1>
                 <button
                   className="start-button"
