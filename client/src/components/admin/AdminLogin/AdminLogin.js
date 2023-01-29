@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminAxiosInstance from "../../../AxiosInstance/AdminAxiosInstance";
 
 import jwt_decode from "jwt-decode";
-import "./AdminLogin.css";
+import "./adminLogin.css";
 import { useNavigate } from "react-router-dom";
 
 function AdminLogin() {
