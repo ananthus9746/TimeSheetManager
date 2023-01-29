@@ -1,6 +1,8 @@
 ﻿# TimeSheetManager
 step to run this project
 
+Time Sheet Manager MACHINE TEST (Monday 30 jan 2023)
+
 //starting client side
 
 1st cd ./client
