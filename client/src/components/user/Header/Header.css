@@ -1,11 +1,12 @@
 .header{
     display: flex;
-    justify-content: end;
+    justify-content: space-around;
+    align-items: center;
     color: black;
     width: 100%;
     color: white;
 
-        background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(37, 108, 184, 0.37) 0%, rgba(248, 2, 182, 0.195) 99%);
+        background: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(3, 12, 21, 0.37) 0%, rgba(248, 2, 182, 0.195) 99%);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(6.5px);
         -webkit-backdrop-filter: blur(6.5px);
@@ -25,4 +26,7 @@
     color: rgb(168, 94, 224);
 }
 
+.logo-image{
+height: 70px;
+}
 
