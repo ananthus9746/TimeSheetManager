@@ -15,14 +15,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
-
     box-shadow: 5px 10px 40px #000000;
 
-
-    /* backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.627);
-    backdrop-filter: saturate(210%) blur(10px); */
 
 }
 .start-button{

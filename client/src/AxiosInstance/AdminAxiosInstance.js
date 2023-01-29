@@ -8,14 +8,14 @@ const defaultOptions = {
   },
 };
 
-// Create  user instance
-let AxiosInstance = axios.create(defaultOptions);
+// Create  admin instance
+let AdminAxiosInstance = axios.create(defaultOptions);
 
 // Set the AUTH token for any request
-AxiosInstance.interceptors.request.use(function (config) {
-  const token = localStorage.getItem("userToken");
+AdminAxiosInstance.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("Admintoken");
   config.headers.accesstoken = token;
   return config;
 });
 
-export default AxiosInstance;
+export default AdminAxiosInstance;

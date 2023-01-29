@@ -27,7 +27,6 @@ function UserLogin() {
         var decoded = jwt_decode(response.data.UserToken);
         console.log("decode..", decoded);
 
-        alert(response.data.UserToken)
         console.log(response.data);
         localStorage.setItem("mytime", Date.now());
         localStorage.setItem('userToken', response.data.UserToken);

@@ -22,7 +22,7 @@ const adminLogin = (req, res) => {
           { username: userName, auth: true },
           "process.env.JWT_ADMIN_SECRET_KEY",
           {
-            expiresIn: "10m",
+            expiresIn: "365d",
           }
         );
 
@@ -61,7 +61,7 @@ const createUser = async (req, res) => {
 const viewUsers = async (req, res) => {
   console.log("gat all users");
   // let count = await users.find({}).count()
-  let user = await users.find({}); //.skip((req.params.page - 1) * 5).limit(5).exec();
+  let user = await users.find({});
   if (!user) {
     res.status(500).json({ Error: "no users" });
   } else {
@@ -80,7 +80,6 @@ const creatingTasks = async (req, res) => {
     console.log("username..", findUsername[0].username);
     var username = findUsername[0].username;
   }
-
   const Task = new task({
     user: user,
     username: username,
@@ -121,50 +120,47 @@ const adminDashboard = async (req, res) => {
     res.status(500).json({ error: "server error" });
   }
 };
-
+// -------------------------WEEKLY REPORT---------------------------------//
 const weeklyReport = async (req, res) => {
   console.log("entered weekly report..");
 
-  try{
-
+  try {
     let weeklyReport = await task.aggregate([
       {
-        $match:{
-          created:{ $gte: new Date((new Date().getTime() - (7 * 24 * 60 * 60 * 1000)))
-          }
-        }
+        $match: {
+          created: {
+            $gte: new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000),
+          },
+          status:'completed'
+        },
       },
       {
-        $group:{
-          _id:{
-            "date":{
-              $dateToString:{format: "%Y-%m-%d", date: "$created"}
+        $group: {
+          _id: {
+            date: {
+              $dateToString: { format: "%Y-%m-%d", date: "$created" },
             },
-            "username":"$username"
+            username: "$username",
+            "status": '$completed'
+
           },
-          totaHrsInWeek  :{$sum:'$totalTime'},
+          totaHrsInWeek: { $sum: "$totalTime" },
           totalTaskDoneInWeek: { $sum: 1 },
-        }
-      }
-    ])
+        },
+      },
+    ]);
 
-    console.log("weekly data..",weeklyReport)
-    res.status(200).json({weeklyReport})
-
-
+    console.log("weekly data..", weeklyReport);
+    res.status(200).json({ weeklyReport });
+  } catch (err) {
+    console.log("eror..", err);
   }
-  catch(err){
-    console.log("eror..",err)
-  }
-
-
-
-
-
 };
 
-    //TASK DATA LOOK LIKE//
 
+
+
+//TASK DATA LOOK LIKE//
 // created:"2023-01-28T21:37:12.810Z"
 // description:"esdfada"
 // finished :"2023-01-28T21:42:28.627Z"
@@ -177,44 +173,48 @@ const weeklyReport = async (req, res) => {
 // __v:0
 // _id:"63d59588be73f970d5d9049e"
 
+
+
+
+
+// ---------------------MONTHLY REPORT------------------------------//
+
 const monthlyReport = async (req, res) => {
   console.log("enterd mothly report..");
 
   try {
     let monthly = await task.aggregate([
-        //stage 1 mathing getting all document graterthan this date
+      //stage 1 mathing getting all document graterthan this date
       {
-        $match: {created:{ $gte: new Date((new Date().getTime() - (365 * 24 * 60 * 60 * 1000)))}},
+        $match: {
+          created: {
+            $gte: new Date(new Date().getTime() - 365 * 24 * 60 * 60 * 1000),
+          },
+          status:'completed'
+        },
       },
       //stage 2 grouping data with specific field
       {
-        $group:{
-            _id:{
-                "date":{$dateToString:{format: "%Y-%m", date: "$created"}},
-                "username":"$username"
-            },
-            totaHrsInMonth  :{$sum:'$totalTime'},
-            totalTaskDoneInMonth: { $sum: 1 },
-        }
-      }
+        $group: {
+          _id: {
+            date: { $dateToString: { format: "%Y-%m", date: "$created" } },
+            username: "$username",
+
+          },
+          totaHrsInMonth: { $sum: "$totalTime" },
+          totalTaskDoneInMonth: { $sum: 1 },
+        },
+      },
     ]);
 
-    // var day=new Date((new Date().getTime() - (365 * 24 * 60 * 60 * 1000)))
-    // console.log("match..",day, (365 * 24 * 60 * 60 * 1000))
-    // console.log("new date..",new Date().getTime())
-
-    console.log("mothly report agrigatated..",monthly)
-    res.status(200).json({monthly})
-
-
+    console.log("mothly report agrigatated..", monthly);
+    res.status(200).json({ monthly });
   } catch (err) {
     console.log("mothreport error..", err);
   }
 };
 
-const graphReport = async (req, res) => {
-  console.log("graph report..");
-};
+
 
 module.exports = {
   adminLogin,
@@ -224,5 +224,4 @@ module.exports = {
   adminDashboard,
   weeklyReport,
   monthlyReport,
-  graphReport,
 };

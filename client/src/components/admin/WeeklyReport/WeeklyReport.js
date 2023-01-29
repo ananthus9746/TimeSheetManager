@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
+// import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
+import AdminAxiosInstance from '../../../AxiosInstance/AdminAxiosInstance'
+
 
 function WeeklyReport() {
   const [week,setWeek]=useState([])
@@ -7,7 +9,7 @@ function WeeklyReport() {
   useEffect(() => {
     try {
       const getCounts= async () => {
-        const response = await AxiosInstance({
+        const response = await AdminAxiosInstance({
           method: "get",
           url: `admin/WeeklyReport`,
         }).then((res) => {

@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
-import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
+// import AxiosInstance from '../../../AxiosInstance/AxiosInstance'
+import AdminAxiosInstance from '../../../AxiosInstance/AdminAxiosInstance'
+
 
 function MonthlyReport() {
-
- 
 const [month,setMonth]=useState([])
 
   useEffect(() => {
     try {
       const getCounts= async () => {
-        const response = await AxiosInstance({
+        const response = await AdminAxiosInstance({
           method: "get",
           url: `admin/MonthlyReport`,
         }).then((res) => {
@@ -24,9 +24,6 @@ const [month,setMonth]=useState([])
       alert("erorr", err);
     }
   },[]);
-
-
-
 
   return (
     <div className="user-table-container">

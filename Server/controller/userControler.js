@@ -27,12 +27,9 @@ const userLogin = async(req, res) => {
         let userId=UserEmail[0]._id
         const UserToken = jwt.sign({ userId },
           "process.env.JWT_USER_SECRET_KEY", {
-          expiresIn: "10m",
+          expiresIn: "365d",
          })
-        //  let userData={
-        //   userName:UserEmail[0].username,
-        //   email:UserEmail[0].email,
-        //  }
+   
          res.status(200).json({UserToken:UserToken,userId:UserEmail[0]._id})
       }
       else{
