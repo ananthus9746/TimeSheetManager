@@ -1,8 +1,38 @@
 import React from 'react'
-import {NavLink,NavNavLink} from 'react-router-dom'
+import {NavLink,NavNavLink,useNavigate} from 'react-router-dom'
 import './SideBar.css'
+import Swal from "sweetalert2";
+
 
 export default function SideBar() {
+
+
+  const Navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to logout!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#7b25b8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, continue!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("Admintoken");
+          Navigate("/admin-login");
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
   return (
     <div>
     <nav className='SideBar'>
@@ -33,10 +63,8 @@ export default function SideBar() {
 
     </NavLink>
 
-    <NavLink to={'admin/logOut'} >
-    <p className='selectedSection'>Logout</p>
+    <p onClick={handleLogout}  className='selectedSection'>Logout</p>
 
-    </NavLink>
 
     </nav>
     </div>
