@@ -11,7 +11,7 @@ Time Sheet Manager MACHINE TEST (Monday 30 jan 2023)
 
 // starting server side
 
-4rd cd ./server
+4th cd ./server
 5th npm install
 7th npm start
 
