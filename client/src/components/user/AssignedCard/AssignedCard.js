@@ -70,6 +70,8 @@ function AssignedCard() {
                 <h2 className="card-heading">{obj.taskname}</h2>
                 <p className="card-paragraph">{obj.description}</p>
                 <p>Task assigned date : {moment(obj.createdAt).format("dddd-MMM-DD")}</p>
+                
+
                 <h1 className="card-time">Allowcated time: {obj.time}hr</h1>
                 <button
                   className="start-button"
